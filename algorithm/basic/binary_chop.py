@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+
+
 def binary_chop(data, size, number):
     """
     二分法查找对应的元素的所在位置
@@ -13,7 +15,7 @@ def binary_chop(data, size, number):
         return -1
     if size == 0:
         return -1
-    split_size = int(size/2)
+    split_size = int(size / 2)
     data1 = data[0:split_size]
     data2 = data[split_size:size]
     result1 = binary_chop(data=data1, size=len(data1), number=number)
@@ -24,7 +26,3 @@ def binary_chop(data, size, number):
         return result2 + split_size
     return -1
 
-
-if __name__ == '__main__':
-    pos = binary_chop(data=[2, 13, 4, 1, 3, 3, 44, 13], size=8, number=44)
-    print pos
