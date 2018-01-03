@@ -40,3 +40,22 @@ def insert(arr):
             j = j - 1
         cur[j] = tmp
     return cur
+
+
+def quick(arr, left, right):
+    """快速排序"""
+    if left < right:
+        i = left
+        j = right
+        cur = arr[left]
+        while i < j:
+            while i < j and arr[j] >= cur:  # 找到右边小于cur的数的坐标
+                j -= 1
+            arr[i] = arr[j]
+            while i < j and arr[i] < cur:
+                i += 1
+            arr[j] = arr[i]
+        arr[i] = cur
+        quick(arr, left, i - 1)
+        quick(arr, i + 1, right)
+        return arr

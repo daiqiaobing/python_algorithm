@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 import unittest
 
+import copy
+
 from algorithm.basic.binary_chop import binary_chop
 from algorithm.basic.find_repeate_str import FirstRepeat, Coder
-from algorithm.basic.sort import bubble, choose, insert
-from algorithm.constant import FIND_REPEAT_STR_CODER, SORT_ARR, SORT_SMALL_LARGE, SORT_LARGE_SMALL
+from algorithm.basic.sort import bubble, choose, insert, quick
+from algorithm.constant import FIND_REPEAT_STR_CODER, SORT_ARR, SORT_SMALL_LARGE, SORT_LARGE_SMALL, SORT_ARR1, \
+    SORT_SMALL_LARGE1, SORT_LARGE_SMALL1
 
 
 class TestBasic(unittest.TestCase):
@@ -30,6 +33,10 @@ class TestBasic(unittest.TestCase):
     def test_insert(self):
         result = insert(SORT_ARR)
         assert result == SORT_SMALL_LARGE or result == SORT_LARGE_SMALL
+
+    def test_quick(self):
+        result = quick(copy.deepcopy(SORT_ARR1), 0, len(SORT_ARR)-1)
+        assert result == SORT_SMALL_LARGE1 or result == SORT_LARGE_SMALL1
 
 
 if __name__ == '__main__':
