@@ -59,3 +59,19 @@ def quick(arr, left, right):
         quick(arr, left, i - 1)
         quick(arr, i + 1, right)
         return arr
+
+
+def merge(arr, left, right):
+    """归并排序"""
+    if (right - left) > 1:
+        n = int((right + left) / 2)
+        merge(arr, left, n)
+        merge(arr, n + 1, right)
+        for i in range(left + 1, right+1):
+            tmp = arr[i]
+            j = i
+            while j > 0 and arr[j - 1] > tmp:
+                arr[j] = arr[j - 1]
+                j -= 1
+            arr[j] = tmp
+    return arr
